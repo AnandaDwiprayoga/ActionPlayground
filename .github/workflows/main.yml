@@ -12,7 +12,7 @@ jobs:
   android-test:
     name: Run Android API-${{ matrix.api-level }} Test
     # Requires a "larger runner", for nested virtualization support
-    runs-on: ubuntu-latest-4-cores
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         api-level: [28]
