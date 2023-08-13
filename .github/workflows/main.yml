@@ -62,11 +62,11 @@ jobs:
 
       - name: Create Test Report
         if: success() || failure()
-        run: find . -type d -name 'reports' | zip -@ -r build-reports.zip
+        run: find . -type d -name 'reports/androidTests/connected/' | zip -@ -r build-reports.zip
 
       - name: Upload results
         if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
-          name: error-report
+          name: test-report-${{ job.status }}
           path: build-reports.zip
