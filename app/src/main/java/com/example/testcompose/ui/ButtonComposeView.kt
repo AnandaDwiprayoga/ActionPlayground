@@ -22,17 +22,14 @@ fun ButtonComposeView(
         mutableStateOf(0)
     }
 
-    //create compose view show counter text and increment button here
     Column(
         modifier = modifier
         .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        //show counter text
         Text(modifier = Modifier.testTag("text_counter") ,text = "Counter: $counter")
 
-        //create increment button
         Button(
             onClick = {
                 counter++
