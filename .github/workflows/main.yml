@@ -58,7 +58,7 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: ./gradlew connectedCheck
+          script: adb uninstall "com.example.testcompose"; ./gradlew connectedCheck # uninstall first before running test
 
       - name: Create Test Report
         if: success() || failure()
