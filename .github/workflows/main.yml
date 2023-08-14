@@ -45,6 +45,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.api-level >= 30 && 'google_apis' || 'default' }}
           force-avd-creation: false
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: false
@@ -58,7 +59,7 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: adb uninstall "com.example.testcompose"; ./gradlew connectedCheck # uninstall first before running test
+          script: adb uninstall "com.example.testcompose.test"; ./gradlew connectedCheck # uninstall first before running test
 
       - name: Create Test Report
         if: success() || failure()
