@@ -21,8 +21,8 @@ jobs:
         with:
           path: artifacts
 
-      - name: list artifacts
-        run: ls artifacts
+#      - name: list artifacts
+#        run: ls artifacts
 
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
